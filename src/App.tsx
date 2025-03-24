@@ -19,5 +19,3 @@ export const App = () => {
     </div>
   );
 };
-
-// https://www.omdbapi.com/?i=tt3896198&apikey=d2a53b6d
