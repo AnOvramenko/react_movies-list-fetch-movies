@@ -5,7 +5,7 @@ import { FindMovie } from './components/FindMovie';
 import { Movie } from './types/Movie';
 
 export const App = () => {
-  const [movies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   return (
     <div className="page">
@@ -14,8 +14,10 @@ export const App = () => {
       </div>
 
       <div className="sidebar">
-        <FindMovie />
+        <FindMovie setNewMovie={setMovies} />
       </div>
     </div>
   );
 };
+
+// https://www.omdbapi.com/?i=tt3896198&apikey=d2a53b6d
