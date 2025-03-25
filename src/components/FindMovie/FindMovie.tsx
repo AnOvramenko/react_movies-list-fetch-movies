@@ -5,7 +5,7 @@ import { Movie } from '../../types/Movie';
 import { getMovie } from '../../api';
 import { MovieCard } from '../MovieCard';
 interface Props {
-  setNewMovie: (movie: (prev: Movie[]) => Movie[]) => void;
+  setNewMovie: (movie: Movie) => void;
 }
 const defaultImg = 'https://via.placeholder.com/360x270.png?text=no%20preview';
 
@@ -46,13 +46,7 @@ export const FindMovie: React.FC<Props> = ({ setNewMovie }) => {
   };
 
   const handleAddMovie = (newMovie: Movie) => {
-    setNewMovie((prevListOfMovies: Movie[]) => {
-      if (prevListOfMovies.find(mov => mov.imdbId === newMovie.imdbId)) {
-        return [...prevListOfMovies];
-      }
-
-      return [...prevListOfMovies, newMovie];
-    });
+    setNewMovie(newMovie);
     setMovie(null);
     setInputQuery('');
   };
